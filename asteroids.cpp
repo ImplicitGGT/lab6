@@ -3,7 +3,7 @@
 //
 //
 //program: asteroids.cpp
-//author:  Gordon Griesel
+//author:  Heriberto Jimenez
 //date:    2014 - 2018
 //mod spring 2015: added constructors
 //mod spring 2018: X11 wrapper class
@@ -54,7 +54,6 @@ const double OOBILLION = 1.0 / 1e9;
 extern struct timespec timeStart, timeCurrent;
 extern double timeDiff(struct timespec *start, struct timespec *end);
 extern void timeCopy(struct timespec *dest, struct timespec *source);
-extern void showName();
 //-----------------------------------------------------------------------------
 
 class Global {
@@ -747,7 +746,10 @@ void render()
 	ggprint8b(&r, 16, 0x00ffff00, "n bullets: %i", g.nbullets);
 	ggprint8b(&r, 16, 0x00ffff00, "n asteroids: %i", g.nasteroids);
 	ggprint8b(&r, 16, 0x00ffff00, "n asteroids destroyed: ");
+	extern void showName();
 	showName();
+	extern void drawBox(int, int);
+	drawBox(gl.xres/2, gl.yres/2);
 	//
 	//-------------
 	//Draw the ship
